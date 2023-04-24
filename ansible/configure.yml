@@ -1,0 +1,7 @@
+---
+- hosts: EC2
+  become: true
+  roles:
+    - apache
+    - php
+    - mysql

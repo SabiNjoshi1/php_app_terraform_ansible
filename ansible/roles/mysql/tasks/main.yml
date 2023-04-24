@@ -1,0 +1,13 @@
+- name: Copy SQL file to remote host
+  copy:
+    src: "vars/users.sql"
+    dest: "/tmp/script.sql"
+    mode: 0644
+- name: Execute SQL scritp on restarted
+  mysql_db:
+    login_host: mysqldb.c58l01rn1yea.us-east-2.rds.amazonaws.com
+    login_user: username
+    login_password: password
+    name: mydb
+    state: import
+    target: "/tmp/script.sql"
